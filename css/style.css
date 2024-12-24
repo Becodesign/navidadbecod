@@ -49,9 +49,14 @@
 
 .rama p {
   padding-top: 3rem;
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   color: #fff;
   font-family: 'Festive';
+}
+
+.logo {
+  width: 2.7rem;
+  margin-top: 2.5rem;
 }
 
 
