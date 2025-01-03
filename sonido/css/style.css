@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    list-style: none;
+    transition: all .25s linear;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background: #272b34;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#start-button {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    font-size: 5rem;
+    color: #fff;
+    background: #61cf00;
+    cursor: pointer;
+}
