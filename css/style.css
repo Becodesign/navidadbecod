@@ -19,8 +19,31 @@
   transition: all .25s linear;
 }
 
+.button {
+  background: #E0632C;
+  color: #581185;
+  padding: .8rem 1.5rem;
+  border-radius: .5rem;
+  transform: translateX(-1.1rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .3rem;
+  font-size: 1rem;
+
+  &:hover {
+    background: #D94694;
+    color: #17124D;
+  }
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
 .container {
-  background: #272b34;
+  background: #1b1e25;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -28,7 +51,7 @@
   align-items: center;
 
   img {
-    width: 4rem;
+    width: 20rem;
   }
 }
 
