@@ -21,7 +21,7 @@
 
 .button {
   background: #E0632C;
-  color: #581185;
+  color: #440a68;
   padding: .3rem 1.1rem;
   border-radius: .5rem;
   transform: translateX(-1.1rem);
@@ -43,7 +43,7 @@
 }
 
 .container {
-  background: #1b1e25;
+  background: #031227;
   width: 100%;
   height: 100vh;
   display: flex;
