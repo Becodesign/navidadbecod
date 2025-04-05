@@ -22,13 +22,12 @@
 .button {
   background: #E0632C;
   color: #581185;
-  padding: .8rem 1.5rem;
+  padding: .3rem 1.1rem;
   border-radius: .5rem;
   transform: translateX(-1.1rem);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: .3rem;
   font-size: 1rem;
 
   &:hover {
@@ -37,8 +36,9 @@
   }
 
   svg {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    transform: translateY(.05rem)
   }
 }
 
@@ -61,5 +61,26 @@
   justify-content: space-between;
   align-items: center;
   color: #fff;
+
+}
+
+.conten .saludo {
+  width: 7rem;
+  transform: translateX(-2rem);
+  margin-bottom: .5rem;
+  animation: float 3.5s linear infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translate(-2rem, 0rem);
+  }
+
+  50% {
+    transform: translate(-2rem, 1rem);
+  }
+
 
 }
