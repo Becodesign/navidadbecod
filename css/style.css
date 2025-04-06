@@ -65,6 +65,7 @@
 }
 
 .conten .saludo {
+  cursor: pointer;
   width: 7rem;
   transform: translateX(-2rem);
   margin-bottom: .5rem;
