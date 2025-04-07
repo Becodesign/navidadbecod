@@ -119,6 +119,7 @@ body {
   width: 200px;
   /* Ajusta al tamaño de tus imágenes */
   height: 510px;
+  margin-bottom: .7rem;
 
   @media (width<768px) {
     height: 410px;
