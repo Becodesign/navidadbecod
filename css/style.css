@@ -70,6 +70,10 @@ body {
 
   img {
     width: 24rem;
+
+    @media (width<768px) {
+      width: 20rem;
+    }
   }
 }
 
@@ -115,6 +119,10 @@ body {
   width: 200px;
   /* Ajusta al tamaño de tus imágenes */
   height: 510px;
+
+  @media (width<768px) {
+    height: 410px;
+  }
 }
 
 .image {
