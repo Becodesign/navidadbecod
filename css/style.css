@@ -50,9 +50,8 @@ body {
   }
 
   &:hover {
-    background: #E0632C;
+    background: #3b63e6;
     color: #440a68;
-
   }
 
   svg {
@@ -70,7 +69,7 @@ body {
   align-items: center;
 
   img {
-    width: 25rem;
+    width: 24rem;
   }
 }
 
@@ -85,7 +84,7 @@ body {
 
 .conten .saludo {
   cursor: pointer;
-  width: 9rem;
+  width: 8.5rem;
   transform: translateX(-2rem);
   margin-bottom: .5rem;
   animation: float 3.5s linear infinite;
@@ -115,7 +114,7 @@ body {
   position: relative;
   width: 200px;
   /* Ajusta al tamaño de tus imágenes */
-  height: 530px;
+  height: 510px;
 }
 
 .image {
