@@ -1,12 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Festive&display=swap');
-
-@font-face {
-  font-family: 'Fuente';
-  src: url('../font/Snowinter.otf') format('truetype');
-  font-style: normal;
-  font-weight: normal;
-}
-
 * {
   font-family: "Lato", sans-serif;
   margin: 0;
@@ -17,6 +8,10 @@
   text-decoration: none;
   list-style: none;
   transition: all .25s linear;
+}
+
+body {
+  background: #031227;
 }
 
 .button {
@@ -75,7 +70,7 @@
   align-items: center;
 
   img {
-    width: 20rem;
+    width: 25rem;
   }
 }
 
@@ -90,7 +85,7 @@
 
 .conten .saludo {
   cursor: pointer;
-  width: 7rem;
+  width: 9rem;
   transform: translateX(-2rem);
   margin-bottom: .5rem;
   animation: float 3.5s linear infinite;
@@ -113,4 +108,37 @@
   display: flex;
   gap: .4rem;
   justify-content: center;
+}
+
+
+.image-container {
+  position: relative;
+  width: 200px;
+  /* Ajusta al tamaño de tus imágenes */
+  height: 530px;
+}
+
+.image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  transition: opacity .6s linear;
+}
+
+.image-back {
+  opacity: 0;
+  /* Imagen trasera oculta por defecto */
+}
+
+.image-container:hover .image-back {
+  opacity: 1;
+  /* Mostrar imagen trasera al hacer hover */
+}
+
+.image-container:hover .image-front {
+  opacity: 0;
+  /* Ocultar imagen frontal al hacer hover */
 }

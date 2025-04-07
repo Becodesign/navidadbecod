@@ -1,4 +1,3 @@
-
 document.getElementById("button-max-min").addEventListener("click", () => {
     const button = document.getElementById("button-max-min");
     const icon = button.querySelector("i");
@@ -17,3 +16,4 @@ document.getElementById("button-max-min").addEventListener("click", () => {
         }
     }
 });
+
