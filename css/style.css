@@ -24,7 +24,6 @@
   color: #440a68;
   padding: .3rem 1.1rem;
   border-radius: .5rem;
-  transform: translateX(-1.1rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,9 +35,34 @@
   }
 
   svg {
-    width: 2.5rem;
-    height: 2.5rem;
-    transform: translateY(.05rem)
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+}
+
+.button-icon {
+  background: #D94694;
+  color: #17124D;
+  padding: .3rem 1.1rem;
+  border-radius: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  i {
+    font-size: 1.3rem;
+  }
+
+  &:hover {
+    background: #E0632C;
+    color: #440a68;
+
+  }
+
+  svg {
+    width: 2.2rem;
+    height: 2.2rem;
   }
 }
 
@@ -83,5 +107,10 @@
     transform: translate(-2rem, 1rem);
   }
 
+}
 
+.buttons {
+  display: flex;
+  gap: .4rem;
+  justify-content: center;
 }
