@@ -117,7 +117,6 @@ body {
 .image-container {
   position: relative;
   width: 200px;
-  /* Ajusta al tamaño de tus imágenes */
   height: 510px;
   margin-bottom: .7rem;
 
@@ -138,15 +137,12 @@ body {
 
 .image-back {
   opacity: 0;
-  /* Imagen trasera oculta por defecto */
 }
 
 .image-container:hover .image-back {
   opacity: 1;
-  /* Mostrar imagen trasera al hacer hover */
 }
 
 .image-container:hover .image-front {
   opacity: 0;
-  /* Ocultar imagen frontal al hacer hover */
 }
