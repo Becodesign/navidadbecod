@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Personal Portfolio Smith</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- ==================== AOS ==================== -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="logo" data-aos="fade-right" data-aos-duration="2000">
+                <span>Dev</span>eloper
+            </div>
+            <ul class="menu">
+                <li><a class="active" href="#" data-aos="fade-right" data-aos-duration="2000"
+                        data-aos-delay="100">Home</a></li>
+                <li><a href="#about" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="200">About</a></li>
+                <li><a href="#" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="300">Services</a></li>
+                <li><a href="#" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="400">Projects</a></li>
+                <li><a href="#" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="500">Blog</a></li>
+            </ul>
+            <div class="email" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="700">
+                <i class='bx bx-envelope'></i>
+                <span>smith@gmail.com</span>
+            </div>
+            <div class="bars">
+                <i class='bx bx-customize'></i>
+            </div>
+        </nav>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home__container">
+            <div class="home__data">
+                <p class="home__hello">Hello Mate 👋</p>
+                <h1 class="home__title" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="400">I'm Michele
+                    Smith
+                </h1>
+                <div class="typewriter" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="500">
+                    a
+                    <span class="typewriter-text">
+                    </span><label for="">|</label>
+                </div>
+                <p class="home__description" data-aos="fade-left" data-aos-duration="2000" data-aos-delay=" 600">
+                    Passionate Full Stack developer with a solid understanding of both the frontend and backend. I enjoy
+                    creating intuitive and engaging user experiences while building robust and scalable server-side
+                    architectures.
+                </p>
+
+                <div class="home__btns" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="800">
+                    <button class="btn1">Book a Call</button>
+                    <button class="btn2">Download CV</button>
+                </div>
+            </div>
+
+            <div class="home__img" data-aos="fade-up" data-aos-duration="3000">
+                <img src="./images/Smith.webp" alt="imagen">
+                <img src="./images/logo1.webp" alt="logo" class="logo1 logo">
+                <img src="./images/logo2.webp" alt="logo" class="logo2 logo">
+                <img src="./images/logo3.webp" alt="logo" class="logo3 logo">
+                <img src="./images/logo4.webp" alt="logo" class="logo4 logo">
+                <img src="./images/logo5.webp" alt="logo" class="logo5 logo">
+            </div>
+
+        </div>
+    </section>
+
+    <section class="about"></section>
+
+
+    <!-- ==================== AOS  ==================== -->
+    <script src="./js/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            once: true,
+        });
+    </script>
+</body>
+
+</html>
