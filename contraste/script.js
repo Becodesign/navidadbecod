@@ -79,10 +79,10 @@ const randomBtn = document.getElementById('random');
 
 function mostrarColor() {
     const color = chroma.random(); // Color base
-    // const complementario = color.set('hsl.h', (color.get('hsl.h') + 180) % 360); // Complementario 
+    const complementario = color.set('hsl.h', (color.get('hsl.h') + 180) % 360); // Complementario 
     color1.value = color.hex();
-    // color2.value = complementario.hex();
-    color2.value = chroma.contrast(color, '#000') > chroma.contrast(color, '#fff') ? '#000000' : '#ffffff';
+    color2.value = complementario.hex();
+
 
     color1.dispatchEvent(new Event('input')); // Disparar evento para actualizar el color
     color2.dispatchEvent(new Event('input')); // Disparar evento para actualizar el color
