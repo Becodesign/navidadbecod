@@ -4,12 +4,16 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./img/ico.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/icono.png" type="image/x-icon">
     <meta name="theme-color" content="#131a2b">
     <meta name="description"
         content="Colores que contrastan es una herramienta para generar combinaciones de colores con alto contraste, ideal para diseño web y accesibilidad.">
     <meta name="keywords" content="colores, contraste, accesibilidad, diseño web, herramientas de color">
     <meta name="author" content="Becod">
+
+    <!-- Chroma.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chroma-js@2.4.2/chroma.min.js"></script>
+
     <title>Contraste de colores</title>
 
     <!-- FontAwesome para iconos -->
@@ -46,6 +50,8 @@
                 <input type="color" id="color2" value="#c0fd19">
             </label>
             <i class="fas fa-copy" id="copy2" title="Copiar color derecho"></i>
+
+            <i class="fa-solid fa-shuffle" id="random"></i>
         </div>
 
     </div>

@@ -65,7 +65,7 @@ copyBtn2.addEventListener('click', () => {
 function mostrarNotificacion() {
     Command: toastr["success"]("", "Copiado");
     toastr.options = {
-        "positionClass": "toast-top-right",
+        "positionClass": "toast-top-center",
         "onclick": null,
         "showDuration": "100",
         "hideDuration": "50",
@@ -74,3 +74,19 @@ function mostrarNotificacion() {
     }
 }
 
+// mostar color aleatorio y complementario
+const randomBtn = document.getElementById('random');
+
+function mostrarColor() {
+    const color = chroma.random(); // Color base
+    // const complementario = color.set('hsl.h', (color.get('hsl.h') + 180) % 360); // Complementario 
+    color1.value = color.hex();
+    // color2.value = complementario.hex();
+    color2.value = chroma.contrast(color, '#000') > chroma.contrast(color, '#fff') ? '#000000' : '#ffffff';
+
+    color1.dispatchEvent(new Event('input')); // Disparar evento para actualizar el color
+    color2.dispatchEvent(new Event('input')); // Disparar evento para actualizar el color
+}
+
+// Evento para el botón de color aleatorio
+randomBtn.addEventListener('click', mostrarColor);
