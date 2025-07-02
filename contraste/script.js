@@ -3,65 +3,80 @@ const color2 = document.getElementById('color2');
 
 const topBox = document.getElementById('topBox');
 const topText = document.getElementById('topText');
-
 const topColorCode = document.getElementById('topColorCode');
-const bottomColorCode = document.getElementById('bottomColorCode');
-
 const topBrand = document.getElementById('topBrand');
-const bottomBrand = document.getElementById('bottomBrand');
 
 const bottomBox = document.getElementById('bottomBox');
 const bottomText = document.getElementById('bottomText');
+const bottomColorCode = document.getElementById('bottomColorCode');
+const bottomBrand = document.getElementById('bottomBrand');
 
-
+// Sincronizar input color1 con todo lo demás
 color1.addEventListener('input', (e) => {
     const color = e.target.value;
     topText.style.color = color;
     topBrand.style.color = color;
     bottomBox.style.backgroundColor = color;
-    topColorCode.textContent = color.toUpperCase();
+    topColorCode.value = color.toUpperCase();
     topColorCode.style.color = color;
 });
 
+// Sincronizar input color2 con todo lo demás
 color2.addEventListener('input', (e) => {
     const color = e.target.value;
     bottomBrand.style.color = color;
     topBox.style.backgroundColor = color;
     bottomText.style.color = color;
-    bottomColorCode.textContent = color.toUpperCase();
+    bottomColorCode.value = color.toUpperCase();
     bottomColorCode.style.color = color;
 });
 
-// Inputs de color
-const colorInput1 = document.getElementById('color1');
-const colorInput2 = document.getElementById('color2');
+// Permitir que el usuario escriba en el input HEX superior
+topColorCode.addEventListener('input', (e) => {
+    let color = e.target.value;
+    if (!color.startsWith('#')) color = '#' + color;
+    if (/^#[0-9A-Fa-f]{6}$/.test(color)) {
+        color1.value = color;
+        topText.style.color = color;
+        topBrand.style.color = color;
+        bottomBox.style.backgroundColor = color;
+        topColorCode.style.color = color;
+    }
+});
+
+// Permitir que el usuario escriba en el input HEX inferior
+bottomColorCode.addEventListener('input', (e) => {
+    let color = e.target.value;
+    if (!color.startsWith('#')) color = '#' + color;
+    if (/^#[0-9A-Fa-f]{6}$/.test(color)) {
+        color2.value = color;
+        bottomBrand.style.color = color;
+        topBox.style.backgroundColor = color;
+        bottomText.style.color = color;
+        bottomColorCode.style.color = color;
+    }
+});
 
 // Botones de copiar
 const copyBtn1 = document.getElementById('copy1');
 const copyBtn2 = document.getElementById('copy2');
 
-
-// Función para copiar al portapapeles
 function copyColorToClipboard(colorValue) {
     navigator.clipboard.writeText(colorValue).then(() => {
         mostrarNotificacion();
-    }
-    ).catch(err => {
-        console.error('Error al copiar el color: ', err);
+    }).catch(err => {
         alert('Error al copiar el color. Inténtalo de nuevo.');
     });
 }
 
-// Eventos de clic
 copyBtn1.addEventListener('click', () => {
-    copyColorToClipboard(colorInput1.value);
+    copyColorToClipboard(color1.value);
 });
-
 copyBtn2.addEventListener('click', () => {
-    copyColorToClipboard(colorInput2.value);
+    copyColorToClipboard(color2.value);
 });
 
-// Función nofificación toastr
+// Función notificación toastr
 function mostrarNotificacion() {
     Command: toastr["success"]("", "Copiado");
     toastr.options = {
@@ -70,23 +85,20 @@ function mostrarNotificacion() {
         "showDuration": "100",
         "hideDuration": "50",
         "timeOut": "50",
-
     }
 }
 
-// mostar color aleatorio y complementario
+// mostrar color aleatorio y complementario
 const randomBtn = document.getElementById('random');
 
 function mostrarColor() {
-    const color = chroma.random(); // Color base
-    const complementario = color.set('hsl.h', (color.get('hsl.h') + 180) % 360); // Complementario 
+    const color = chroma.random();
+    const complementario = color.set('hsl.h', (color.get('hsl.h') + 180) % 360);
     color1.value = color.hex();
     color2.value = complementario.hex();
 
-
-    color1.dispatchEvent(new Event('input')); // Disparar evento para actualizar el color
-    color2.dispatchEvent(new Event('input')); // Disparar evento para actualizar el color
+    color1.dispatchEvent(new Event('input'));
+    color2.dispatchEvent(new Event('input'));
 }
 
-// Evento para el botón de color aleatorio
 randomBtn.addEventListener('click', mostrarColor);
