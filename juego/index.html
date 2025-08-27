@@ -1,149 +1,52 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Premium Whack-a-Mole</title>
+  <title>Asteroids 3D [Software]</title>
   <link rel="stylesheet" href="./style.css">
 
 </head>
-<body>
-<!-- partial:index.partial.html -->
-<body>
-    <div class="game-container">
-        <div class="game-header">
-            <div class="stats">
-                <div class="score">
-                    <span class="score-count">0</span>
-                    <span class="label">Score</span>
-                </div>
-                <div class="timer">
-                    <span class="time">30</span>
-                    <span class="label">Time Left</span>
-                </div>
-                <div class="high-score">
-                    <span class="high-score-count">0</span>
-                    <span class="label">High Score</span>
-                </div>
-            </div>
-            <button class="start-btn">
-                <span>Start Game</span>
-            </button>
-        </div>
 
-        <div class="game-board">
-            <div class="hole">
-                <div class="mole">
-                    <div class="face">
-                        <div class="eyes"></div>
-                        <div class="nose"></div>
-                        <div class="mouth"></div>
-                    </div>
-                </div>
-                <div class="dirt"></div>
-            </div>
-            <div class="hole">
-                <div class="mole">
-                    <div class="face">
-                        <div class="eyes"></div>
-                        <div class="nose"></div>
-                        <div class="mouth"></div>
-                    </div>
-                </div>
-                <div class="dirt"></div>
-            </div>
-            <div class="hole">
-                <div class="mole">
-                    <div class="face">
-                        <div class="eyes"></div>
-                        <div class="nose"></div>
-                        <div class="mouth"></div>
-                    </div>
-                </div>
-                <div class="dirt"></div>
-            </div>
-            <div class="hole">
-                <div class="mole">
-                    <div class="face">
-                        <div class="eyes"></div>
-                        <div class="nose"></div>
-                        <div class="mouth"></div>
-                    </div>
-                </div>
-                <div class="dirt"></div>
-            </div>
-            <div class="hole">
-                <div class="mole">
-                    <div class="face">
-                        <div class="eyes"></div>
-                        <div class="nose"></div>
-                        <div class="mouth"></div>
-                    </div>
-                </div>
-                <div class="dirt"></div>
-            </div>
-            <div class="hole">
-                <div class="mole">
-                    <div class="face">
-                        <div class="eyes"></div>
-                        <div class="nose"></div>
-                        <div class="mouth"></div>
-                    </div>
-                </div>
-                <div class="dirt"></div>
-            </div>
-            <div class="hole">
-                <div class="mole">
-                    <div class="face">
-                        <div class="eyes"></div>
-                        <div class="nose"></div>
-                        <div class="mouth"></div>
-                    </div>
-                </div>
-                <div class="dirt"></div>
-            </div>
-            <div class="hole">
-                <div class="mole">
-                    <div class="face">
-                        <div class="eyes"></div>
-                        <div class="nose"></div>
-                        <div class="mouth"></div>
-                    </div>
-                </div>
-                <div class="dirt"></div>
-            </div>
-            <div class="hole">
-                <div class="mole">
-                    <div class="face">
-                        <div class="eyes"></div>
-                        <div class="nose"></div>
-                        <div class="mouth"></div>
-                    </div>
-                </div>
-                <div class="dirt"></div>
-            </div>
-        </div>
+<body>
+  <!-- partial:index.partial.html -->
+  <!--
+   Asteroids with software 3d renderer
+   Still in progress
+   
+   Controls:
+   WASD - movement
+   LMB - shoot
+-->
+  <!-- partial -->
 
-        <div class="game-over hidden">
-            <div class="game-over-content">
-                <h2>Game Over! 🎮</h2>
-                <div class="stats-final">
-                    <div class="stat">
-                        <span class="value score-final">0</span>
-                        <span class="label">Final Score</span>
-                    </div>
-                    <div class="stat">
-                        <span class="value high-score-final">0</span>
-                        <span class="label">High Score</span>
-                    </div>
-                </div>
-                <button class="play-again-btn">Play Again</button>
-            </div>
-        </div>
+  <!-- Score Display -->
+  <div id="scoreDisplay" class="score-display">
+    <div class="score-item">
+      <span class="score-label">Puntuación:</span>
+      <span id="scoreValue" class="score-value">0</span>
     </div>
-    <script src="script.js"></script>
-</body>
-<!-- partial -->
-  <script  src="./script.js"></script>
+    <div class="score-item">
+      <span class="score-label">Nivel:</span>
+      <span id="levelValue" class="score-value">1</span>
+    </div>
+  </div>
+
+  <!-- Game Over Screen -->
+  <div id="gameOverScreen" class="game-over-screen" style="display: none;">
+    <div class="game-over-content">
+      <h1>GAME OVER</h1>
+      <p>Tu nave ha sido destruida por un asteroide</p>
+      <div class="final-score">
+        <p>Puntuación Final: <span id="finalScoreValue">0</span></p>
+        <p>Nivel Alcanzado: <span id="finalLevelValue">1</span></p>
+      </div>
+      <button id="restartButton" class="restart-button">Reiniciar Juego</button>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
 
 </body>
+
 </html>
