@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Imagen con sonido</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+        }
+
+        img {
+            width: 200px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        img:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Imagen -->
+    <img src="./imagen/mcqueen.png" alt="Haz clic aquí" id="imagen">
+
+    <!-- Audio -->
+    <audio id="sonido">
+        <source src="./audio/mcqueen.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const imagen = document.getElementById("imagen");
+        const sonido = document.getElementById("sonido");
+
+        imagen.addEventListener("click", () => {
+            sonido.currentTime = 0; // Reinicia el audio si ya se está reproduciendo
+            sonido.play();
+        });
+    </script>
+
+</body>
+
+</html>
