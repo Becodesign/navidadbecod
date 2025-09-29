@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regalo de hot wheels</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="no-cargado">
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loader-container">
+      <img src="./images/carrito1.webp" class="loader-image" alt="Hot Wheels">
+      <div class="loader-progress">
+        <div class="loader-bar" id="loaderBar"></div>
+      </div>
+    </div>
+    <div class="loader-percentage" id="percentage">0%</div>
+  </div>
+
+  <div class="mensaje-especial" style="display: none;">
+
+    <h1 id="texto-mensaje"></h1>
+    <img src="./images/carrito4.webp" class="fullscreen-image" id="fullscreenImage">
+  </div>
+  <div class="noche"></div>
+
+  <div class="estrellas-fugaces">
+    <div class="contenedor-estrella-fugaz">
+      <img src="./images/carrito1.webp" class="imagen-estrella" alt="Estrella">
+      <div class="estrella-fugaz"></div>
+    </div>
+    <div class="contenedor-estrella-fugaz">
+      <img src="./images/carrito2.webp" class="imagen-estrella" alt="Estrella">
+      <div class="estrella-fugaz"></div>
+    </div>
+    <div class="contenedor-estrella-fugaz">
+      <img src="./images/carrito3.webp" class="imagen-estrella" alt="Estrella">
+      <div class="estrella-fugaz"></div>
+    </div>
+    <div class="contenedor-estrella-fugaz">
+      <img src="./images/carrito4.webp" class="imagen-estrella" alt="Estrella">
+      <div class="estrella-fugaz"></div>
+    </div>
+    <div class="contenedor-estrella-fugaz">
+      <img src="./images/carrito5.webp" class="imagen-estrella" alt="Estrella">
+      <div class="estrella-fugaz"></div>
+    </div>
+  </div>
+
+  <div class="flores">
+    <div class="flor flor--1" data-modal="modal1">
+      <div class="flor__petalos flor__petalos--1">
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(0deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(30deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(60deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(90deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(120deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(150deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(180deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(210deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(240deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(270deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(300deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(330deg);"></div>
+        <div class="flor__circulo-blanco">M</div>
+        <div class="flor__luz flor__luz--1"></div>
+        <div class="flor__luz flor__luz--2"></div>
+        <div class="flor__luz flor__luz--3"></div>
+        <div class="flor__luz flor__luz--4"></div>
+        <div class="flor__luz flor__luz--5"></div>
+        <div class="flor__luz flor__luz--6"></div>
+        <div class="flor__luz flor__luz--7"></div>
+        <div class="flor__luz flor__luz--8"></div>
+      </div>
+      <div class="flor__linea">
+        <div class="flor__linea__hoja flor__linea__hoja--1"></div>
+        <div class="flor__linea__hoja flor__linea__hoja--2"></div>
+        <div class="flor__linea__hoja flor__linea__hoja--3"></div>
+        <div class="flor__linea__hoja flor__linea__hoja--4"></div>
+      </div>
+    </div>
+
+    <div class="flor flor--2" data-modal="modal2">
+      <div class="flor__petalos flor__petalos--2">
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(0deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(30deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(60deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(90deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(120deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(150deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(180deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(210deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(240deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(270deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(300deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(330deg);"></div>
+
+        <div class="flor__circulo-blanco">O</div>
+
+        <div class="flor__luz flor__luz--1"></div>
+        <div class="flor__luz flor__luz--2"></div>
+        <div class="flor__luz flor__luz--3"></div>
+        <div class="flor__luz flor__luz--4"></div>
+        <div class="flor__luz flor__luz--5"></div>
+        <div class="flor__luz flor__luz--6"></div>
+        <div class="flor__luz flor__luz--7"></div>
+        <div class="flor__luz flor__luz--8"></div>
+      </div>
+      <div class="flor__linea">
+        <div class="flor__linea__hoja flor__linea__hoja--1"></div>
+        <div class="flor__linea__hoja flor__linea__hoja--2"></div>
+        <div class="flor__linea__hoja flor__linea__hoja--3"></div>
+        <div class="flor__linea__hoja flor__linea__hoja--4"></div>
+      </div>
+    </div>
+    <div class="flor flor--3" data-modal="modal3">
+      <div class="flor__petalos flor__petalos--3">
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(0deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(30deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(60deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(90deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(120deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(150deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(180deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(210deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(240deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(270deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(300deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(330deg);"></div>
+
+        <div class="flor__circulo-blanco">A</div>
+
+        <div class="flor__luz flor__luz--1"></div>
+        <div class="flor__luz flor__luz--2"></div>
+        <div class="flor__luz flor__luz--3"></div>
+        <div class="flor__luz flor__luz--4"></div>
+        <div class="flor__luz flor__luz--5"></div>
+        <div class="flor__luz flor__luz--6"></div>
+        <div class="flor__luz flor__luz--7"></div>
+        <div class="flor__luz flor__luz--8"></div>
+      </div>
+      <div class="flor__linea">
+        <div class="flor__linea__hoja flor__linea__hoja--1"></div>
+        <div class="flor__linea__hoja flor__linea__hoja--2"></div>
+        <div class="flor__linea__hoja flor__linea__hoja--3"></div>
+        <div class="flor__linea__hoja flor__linea__hoja--4"></div>
+      </div>
+    </div>
+
+    <div class="flor flor--4" data-modal="modal4">
+      <div class="flor__petalos flor__petalos--4">
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(0deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(30deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(60deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(90deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(120deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(150deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(180deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(210deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(240deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(270deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(300deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(330deg);"></div>
+
+        <div class="flor__circulo-blanco">E</div>
+
+        <div class="flor__luz flor__luz--1"></div>
+        <div class="flor__luz flor__luz--2"></div>
+        <div class="flor__luz flor__luz--3"></div>
+        <div class="flor__luz flor__luz--4"></div>
+        <div class="flor__luz flor__luz--5"></div>
+        <div class="flor__luz flor__luz--6"></div>
+        <div class="flor__luz flor__luz--7"></div>
+        <div class="flor__luz flor__luz--8"></div>
+      </div>
+      <div class="flor__linea">
+        <div class="flor__linea__hoja flor__linea__hoja--1"></div>
+        <div class="flor__linea__hoja flor__linea__hoja--2"></div>
+        <div class="flor__linea__hoja flor__linea__hoja--3"></div>
+        <div class="flor__linea__hoja flor__linea__hoja--4"></div>
+      </div>
+    </div>
+
+    <div class="flor flor--5" data-modal="modal5">
+      <div class="flor__petalos flor__petalos--5">
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(0deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(30deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(60deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(90deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(120deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(150deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(180deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(210deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(240deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(270deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(300deg);"></div>
+        <div class="flor__petalo" style="transform: translate(-50%, -10%) rotate(330deg);"></div>
+
+        <div class="flor__circulo-blanco">T</div>
+
+        <div class="flor__luz flor__luz--1"></div>
+        <div class="flor__luz flor__luz--2"></div>
+        <div class="flor__luz flor__luz--3"></div>
+        <div class="flor__luz flor__luz--4"></div>
+        <div class="flor__luz flor__luz--5"></div>
+        <div class="flor__luz flor__luz--6"></div>
+        <div class="flor__luz flor__luz--7"></div>
+        <div class="flor__luz flor__luz--8"></div>
+      </div>
+      <div class="flor__linea">
+        <div class="flor__linea__hoja flor__linea__hoja--1"></div>
+        <div class="flor__linea__hoja flor__linea__hoja--2"></div>
+        <div class="flor__linea__hoja flor__linea__hoja--3"></div>
+        <div class="flor__linea__hoja flor__linea__hoja--4"></div>
+      </div>
+    </div>
+
+    <!-- Resto del contenido de hierbas y plantas... -->
+    <div class="creciendo-hierba">
+      <div class="flor__hierba flor__hierba--2">
+        <div class="flor__hierba--superior"></div>
+        <div class="flor__hierba--inferior"></div>
+        <div class="flor__hierba__hoja flor__hierba__hoja--1"></div>
+        <div class="flor__hierba__hoja flor__hierba__hoja--2"></div>
+        <div class="flor__hierba__hoja flor__hierba__hoja--3"></div>
+        <div class="flor__hierba__hoja flor__hierba__hoja--4"></div>
+        <div class="flor__hierba__hoja flor__hierba__hoja--5"></div>
+        <div class="flor__hierba__hoja flor__hierba__hoja--6"></div>
+        <div class="flor__hierba__hoja flor__hierba__hoja--7"></div>
+        <div class="flor__hierba__hoja flor__hierba__hoja--8"></div>
+        <div class="flor__hierba__superposicion"></div>
+      </div>
+    </div>
+
+    <div class="crecer-ans" style="--d: 2.4s">
+      <div class="flor__hierba-derecha flor__hierba-derecha--1">
+        <div class="hoja"></div>
+      </div>
+    </div>
+
+    <div class="crecer-ans" style="--d: 2.8s">
+      <div class="flor__hierba-derecha flor__hierba-derecha--2">
+        <div class="hoja"></div>
+      </div>
+    </div>
+
+    <div class="crecer-ans" style="--d: 2.8s">
+      <div class="flor__hierba-frontal">
+        <div class="flor__hierba-frontal__envoltura-hoja flor__hierba-frontal__envoltura-hoja--1">
+          <div class="flor__hierba-frontal__hoja"></div>
+        </div>
+        <div class="flor__hierba-frontal__envoltura-hoja flor__hierba-frontal__envoltura-hoja--2">
+          <div class="flor__hierba-frontal__hoja"></div>
+        </div>
+        <div class="flor__hierba-frontal__envoltura-hoja flor__hierba-frontal__envoltura-hoja--3">
+          <div class="flor__hierba-frontal__hoja"></div>
+        </div>
+        <div class="flor__hierba-frontal__envoltura-hoja flor__hierba-frontal__envoltura-hoja--4">
+          <div class="flor__hierba-frontal__hoja"></div>
+        </div>
+        <div class="flor__hierba-frontal__envoltura-hoja flor__hierba-frontal__envoltura-hoja--5">
+          <div class="flor__hierba-frontal__hoja"></div>
+        </div>
+        <div class="flor__hierba-frontal__envoltura-hoja flor__hierba-frontal__envoltura-hoja--6">
+          <div class="flor__hierba-frontal__hoja"></div>
+        </div>
+        <div class="flor__hierba-frontal__envoltura-hoja flor__hierba-frontal__envoltura-hoja--7">
+          <div class="flor__hierba-frontal__hoja"></div>
+        </div>
+        <div class="flor__hierba-frontal__envoltura-hoja flor__hierba-frontal__envoltura-hoja--8">
+          <div class="flor__hierba-frontal__hoja"></div>
+        </div>
+        <div class="flor__hierba-frontal__linea"></div>
+      </div>
+    </div>
+
+    <div class="crecer-ans" style="--d: 3.2s">
+      <div class="flor__hierba-fr">
+        <div class="hoja"></div>
+        <div class="flor__hierba-fr__hoja flor__hierba-fr__hoja--1"></div>
+        <div class="flor__hierba-fr__hoja flor__hierba-fr__hoja--2"></div>
+        <div class="flor__hierba-fr__hoja flor__hierba-fr__hoja--3"></div>
+        <div class="flor__hierba-fr__hoja flor__hierba-fr__hoja--4"></div>
+        <div class="flor__hierba-fr__hoja flor__hierba-fr__hoja--5"></div>
+        <div class="flor__hierba-fr__hoja flor__hierba-fr__hoja--6"></div>
+        <div class="flor__hierba-fr__hoja flor__hierba-fr__hoja--7"></div>
+        <div class="flor__hierba-fr__hoja flor__hierba-fr__hoja--8"></div>
+      </div>
+    </div>
+
+    <div class="hierba-larga hierba-larga--0">
+      <div class="crecer-ans" style="--d: 3s">
+        <div class="hoja hoja--0"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 2.2s">
+        <div class="hoja hoja--1"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 3.4s">
+        <div class="hoja hoja--2"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 3.6s">
+        <div class="hoja hoja--3"></div>
+      </div>
+    </div>
+
+    <div class="hierba-larga hierba-larga--1">
+      <div class="crecer-ans" style="--d: 3.6s">
+        <div class="hoja hoja--0"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 3.8s">
+        <div class="hoja hoja--1"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 4s">
+        <div class="hoja hoja--2"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 4.2s">
+        <div class="hoja hoja--3"></div>
+      </div>
+    </div>
+
+    <div class="hierba-larga hierba-larga--2">
+      <div class="crecer-ans" style="--d: 4s">
+        <div class="hoja hoja--0"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 4.2s">
+        <div class="hoja hoja--1"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 4.4s">
+        <div class="hoja hoja--2"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 4.6s">
+        <div class="hoja hoja--3"></div>
+      </div>
+    </div>
+
+    <div class="hierba-larga hierba-larga--3">
+      <div class="crecer-ans" style="--d: 4s">
+        <div class="hoja hoja--0"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 4.2s">
+        <div class="hoja hoja--1"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 3s">
+        <div class="hoja hoja--2"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 3.6s">
+        <div class="hoja hoja--3"></div>
+      </div>
+    </div>
+
+    <div class="hierba-larga hierba-larga--4">
+      <div class="crecer-ans" style="--d: 4s">
+        <div class="hoja hoja--0"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 4.2s">
+        <div class="hoja hoja--1"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 3s">
+        <div class="hoja hoja--2"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 3.6s">
+        <div class="hoja hoja--3"></div>
+      </div>
+    </div>
+
+    <div class="hierba-larga hierba-larga--5">
+      <div class="crecer-ans" style="--d: 4s">
+        <div class="hoja hoja--0"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 4.2s">
+        <div class="hoja hoja--1"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 3s">
+        <div class="hoja hoja--2"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 3.6s">
+        <div class="hoja hoja--3"></div>
+      </div>
+    </div>
+
+    <div class="hierba-larga hierba-larga--6">
+      <div class="crecer-ans" style="--d: 4.2s">
+        <div class="hoja hoja--0"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 4.4s">
+        <div class="hoja hoja--1"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 4.6s">
+        <div class="hoja hoja--2"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 4.8s">
+        <div class="hoja hoja--3"></div>
+      </div>
+    </div>
+
+    <div class="hierba-larga hierba-larga--7">
+      <div class="crecer-ans" style="--d: 3s">
+        <div class="hoja hoja--0"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 3.2s">
+        <div class="hoja hoja--1"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 3.5s">
+        <div class="hoja hoja--2"></div>
+      </div>
+      <div class="crecer-ans" style="--d: 3.6s">
+        <div class="hoja hoja--3"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal1" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar-modal">&times;</span>
+      <h2 style="text-align: center; color: #6bf0ff; margin-bottom: 20px;">Amarte es mi mejor decisión.</h2>
+      <div class="carrusel-contenedor">
+        <div class="carrusel">
+          <div class="carrusel-elemento" style="background-image: url('./images/car-1.webp')">
+          </div>
+          <div class="carrusel-elemento" style="background-image: url('./images/ramo1.webp')">
+          </div>
+          <div class="carrusel-elemento" style="background-image: url('./images/car-2.webp')">
+          </div>
+        </div>
+      </div>
+      <div class="carrusel-controles">
+        <div class="carrusel-punto activo" data-indice="0"></div>
+        <div class="carrusel-punto" data-indice="1"></div>
+        <div class="carrusel-punto" data-indice="2"></div>
+      </div>
+      <div class="texto-escribiendo" id="texto-escribiendo-1"></div>
+    </div>
+  </div>
+
+  <div id="modal2" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar-modal">&times;</span>
+      <h2 style="text-align: center; color: #6bf0ff; margin-bottom: 20px;">Contigo, todo tiene sentido.</h2>
+      <div class="carrusel-contenedor">
+        <div class="carrusel">
+          <div class="carrusel-elemento" style="background-image: url('./images/car-3.webp')">
+          </div>
+          <div class="carrusel-elemento" style="background-image: url('./images/ramo2.webp')">
+          </div>
+          <div class="carrusel-elemento" style="background-image: url('./images/car-4.webp')">
+          </div>
+        </div>
+      </div>
+      <div class="carrusel-controles">
+        <div class="carrusel-punto activo" data-indice="0"></div>
+        <div class="carrusel-punto" data-indice="1"></div>
+        <div class="carrusel-punto" data-indice="2"></div>
+      </div>
+      <div class="texto-escribiendo" id="texto-escribiendo-2"></div>
+    </div>
+  </div>
+
+  <div id="modal3" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar-modal">&times;</span>
+      <h2 style="text-align: center; color: #6bf0ff; margin-bottom: 20px;">Tu amor es mi lugar favorito.</h2>
+      <div class="carrusel-contenedor">
+        <div class="carrusel">
+          <div class="carrusel-elemento" style="background-image: url('./images/car-5.webp')">
+          </div>
+          <div class="carrusel-elemento" style="background-image: url('./images/ramo3.webp')">
+          </div>
+          <div class="carrusel-elemento" style="background-image: url('./images/car-1.webp')">
+          </div>
+        </div>
+      </div>
+      <div class="carrusel-controles">
+        <div class="carrusel-punto activo" data-indice="0"></div>
+        <div class="carrusel-punto" data-indice="1"></div>
+        <div class="carrusel-punto" data-indice="2"></div>
+      </div>
+      <div class="texto-escribiendo" id="texto-escribiendo-3"></div>
+    </div>
+  </div>
+
+  <div id="modal4" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar-modal">&times;</span>
+      <h2 style="text-align: center; color: #6bf0ff; margin-bottom: 20px;">Gracias por existir en mi vida.</h2>
+      <div class="carrusel-contenedor">
+        <div class="carrusel">
+          <div class="carrusel-elemento" style="background-image: url('./images/car-4.webp')">
+          </div>
+          <div class="carrusel-elemento" style="background-image: url('./images/ramo4.webp')">
+          </div>
+          <div class="carrusel-elemento" style="background-image: url('./images/car-3.webp')">
+          </div>
+        </div>
+      </div>
+      <div class="carrusel-controles">
+        <div class="carrusel-punto activo" data-indice="0"></div>
+        <div class="carrusel-punto" data-indice="1"></div>
+        <div class="carrusel-punto" data-indice="2"></div>
+      </div>
+      <div class="texto-escribiendo" id="texto-escribiendo-4"></div>
+    </div>
+  </div>
+
+  <div id="modal5" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar-modal">&times;</span>
+      <h2 style="text-align: center; color: #6bf0ff; margin-bottom: 20px;">Siempre tú, sin dudarlo.</h2>
+      <div class="carrusel-contenedor">
+        <div class="carrusel">
+          <div class="carrusel-elemento" style="background-image: url('./images/car-2.webp')">
+          </div>
+          <div class="carrusel-elemento" style="background-image: url('./images/ramo5.webp')">
+          </div>
+          <div class="carrusel-elemento" style="background-image: url('./images/car-1.webp')">
+          </div>
+        </div>
+      </div>
+      <div class="carrusel-controles">
+        <div class="carrusel-punto activo" data-indice="0"></div>
+        <div class="carrusel-punto" data-indice="1"></div>
+        <div class="carrusel-punto" data-indice="2"></div>
+      </div>
+      <div class="texto-escribiendo" id="texto-escribiendo-5"></div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>
