@@ -1,0 +1,158 @@
+@font-face {
+    font-family: 'Nexusbold';
+    src: url('./font/Nexusbold.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* variables  */
+:root {
+    --color-1: #c0fd19;
+    --color-2: #fc02ae;
+    --fondo: #131a2b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: 'Arial Black', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--fondo);
+    padding: 1rem;
+}
+
+.container {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+}
+
+.box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 1rem;
+}
+
+.top {
+    background-color: var(--color-1);
+    color: var(--color-2);
+    border-radius: 0.4rem 0.4rem 0 0;
+}
+
+.bottom {
+    background-color: var(--color-2);
+    color: var(--color-1);
+    border-radius: 0 0 0.4rem 0.4rem;
+}
+
+
+.text {
+    font-size: 14rem;
+    letter-spacing: 5px;
+    font-weight: 100;
+    font-family: 'Nexusbold', sans-serif;
+
+    /* @media (width < 600px) {
+        font-size: 10rem;
+
+    } */
+}
+
+.color-code {
+    font-size: 1rem;
+    font-family: monospace;
+
+}
+
+.brand {
+    font-family: 'Arial Rounded MT Bold', sans-serif;
+    font-size: 1.2rem;
+    color: var(--color-2);
+}
+
+#bottomBrand {
+    color: var(--color-1);
+}
+
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    padding: 1rem 0 1rem 0;
+    background: var(--fondo);
+}
+
+.controls label {
+    flex: 1;
+    height: 3rem;
+    overflow: hidden;
+    border-radius: .4rem;
+}
+
+.controls i {
+    background: hsla(0, 0%, 100%, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.7rem;
+    cursor: pointer;
+    color: #ececec;
+    border-radius: .4rem;
+
+    &:active {
+        transform: scale(.9);
+    }
+}
+
+.controls input[type="color"] {
+    border: none;
+    background: none;
+    width: 100%;
+    height: 100%;
+    transform: scale(1.5);
+    cursor: pointer;
+
+}
+
+
+.color-code {
+    background: hsla(0, 0%, 100%, 0.2);
+    backdrop-filter: blur(15px);
+    font-size: 1.2rem;
+    text-align: center;
+    width: 120px;
+    border-radius: 1rem;
+}
+
+#bottomColorCode {
+    color: var(--color-1);
+}
+
+#topColorCode {
+    color: var(--color-2);
+}
+
+.toast-success {
+    background-color: hsla(223, 39%, 12%, 0.7) !important;
+    font-family: 'Arial Rounded MT Bold', sans-serif !important;
+    box-shadow: none !important;
+    width: 10rem !important;
+    font-size: .9rem !important;
+}
