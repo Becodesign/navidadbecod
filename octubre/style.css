@@ -188,7 +188,7 @@ body {
 }
 
 #bgVideo {
-    opacity: 0.2;
+    opacity: 0.3;
     /* Ajusta el valor según lo que prefieras */
     transition: opacity 0.5s;
 }
