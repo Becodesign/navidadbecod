@@ -5,6 +5,10 @@
     --color-2: #f99d6b;
 }
 
+html {
+    overflow: hidden;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -14,6 +18,7 @@ body {
     color: #fff;
     user-select: none;
     overflow: hidden;
+    position: relative;
 
 }
 
