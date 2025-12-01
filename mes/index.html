@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Octubre</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+  <!-- Video de fondo solo en pantallas <=768px -->
+  <video id="bgVideo" autoplay muted loop playsinline
+    style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; object-fit:cover; z-index:-1;">
+    <source src="./recursos/video.mp4" type="video/mp4">
+  </video>
+
+  <!-- Pantalla inicial -->
+  <div class="bgoverlay" id="startScreen">
+    <div class="container">
+      <span class="ico"><span class="ico2"></span>
+        <span class="title">Haz clic en mí</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- Contenido principal -->
+  <div id="mainContent">
+    <div id="audioToggle">🔇</div>
+    <div class="card">
+      <img id="mainImage" src="./recursos/diciembre.png" alt="Decoración">
+      <div class="text" id="animatedText"></div>
+    </div>
+  </div>
+
+  <!-- Audio -->
+  <audio id="bgMusic" preload="auto" loop crossorigin="anonymous">
+    <source src="./recursos/audio.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="./script.js"></script>
+
+</body>
+
+</html>
