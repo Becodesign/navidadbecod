@@ -1,7 +1,7 @@
 const lista = [
-    "Que este mes llegue cargado de muchas bendiciones.",
+    "Que la esperanza te encuentre y se quede contigo.",
     "Que Dios te cubra con su manto de amor y protección.",
-    "Te deseo un octubre lleno de logros, sonrisas y tranquilidad."
+    "Que la magia de esta temporada ilumine tu corazón."
 ];
 const colores = ["#6cb94d", "#fdf7a3", "#ffe6e6"]; // Colores diferentes para cada frase
 
