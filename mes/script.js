@@ -1,11 +1,11 @@
 const lista = [
-    "Que la esperanza te encuentre y se quede contigo.",
-    "Que Dios te cubra con su manto de amor y protección.",
-    "Que la magia de esta temporada ilumine tu corazón."
+    "Nuevos comienzos, más sueños y el doble de ganas de lograrlo.",
+    "Que no nos falte amor, trabajo y motivos para sonreír.",
+    "Que Dios guíe cada paso que demos por buen camino siempre."
 ];
-const colores = ["#6cb94d", "#fdf7a3", "#ffe6e6"]; // Colores diferentes para cada frase
+const colores = ["#ff076f", "#d9fc17", "#00ddfc"]; // Colores diferentes para cada frase
 
-const emojis = ["🎄", "⭐", "🎅", "🎁", "🎄", "🎅", "🎁"];
+const emojis = ["💛", "🩵", "🩷", "💛", "🩵", "🧡", "🩷"];
 
 const container = document.getElementById("animatedText");
 const mainImage = document.getElementById("mainImage");

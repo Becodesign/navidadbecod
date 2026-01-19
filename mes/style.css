@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap');
 
 :root {
-    --color-1: #6cb94d;
-    --color-2: #fdf7a3;
-    --color-3: #ffe6e6;
-    --sombra: #000000;
+    --color-1: #ff076f;
+    --color-2: #d9fc17;
+    --color-3: #00ddfc;
+    --sombra: #3d3d3d;
 }
 
 html {
@@ -18,7 +18,7 @@ body {
     height: 100vh;
     font-family: "Freckle Face", system-ui;
     overflow: hidden;
-    background: radial-gradient(circle, #161616, #000000);
+    background: radial-gradient(circle, #000000, #000000);
     color: #fff;
     user-select: none;
     /* para movil  */
