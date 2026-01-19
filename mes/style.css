@@ -4,7 +4,7 @@
     --color-1: #6cb94d;
     --color-2: #fdf7a3;
     --color-3: #ffe6e6;
-    --sombra: #8B0000;
+    --sombra: #000000;
 }
 
 html {
@@ -18,7 +18,7 @@ body {
     height: 100vh;
     font-family: "Freckle Face", system-ui;
     overflow: hidden;
-    background: radial-gradient(circle, #c70000, #690000);
+    background: radial-gradient(circle, #161616, #000000);
     color: #fff;
     user-select: none;
     /* para movil  */
@@ -172,7 +172,7 @@ body {
 .card img {
     width: 550px;
     opacity: 0;
-    filter: drop-shadow(0 5px 15px hsla(21, 92%, 70%, 0.4));
+    filter: drop-shadow(0 5px 15px hsla(0, 0%, 29%, 0.4));
     margin-bottom: 2rem;
 
     @media (width<768px) {
