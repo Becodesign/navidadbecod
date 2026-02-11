@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Día del Amor y la Amistad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient( #bc033a , #a50333 );
+      font-family: 'Great Vibes', cursive;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    /* Patrón de corazones de fondo */
+    .bg-pattern {
+      position: fixed;
+      inset: 0;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255, 107, 157, 0.15) 0%, transparent 20%),
+        radial-gradient(circle at 80% 70%, rgba(255, 179, 198, 0.12) 0%, transparent 18%),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 30%);
+      z-index: 0;
+    }
+
+    /* Corazones pequeños flotantes de fondo */
+    .mini-hearts-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .mini-heart {
+      position: absolute;
+      opacity: 0.4;
+      animation: floatMini 15s infinite ease-in-out;
+    }
+
+    @keyframes floatMini {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-30px) rotate(10deg);
+      }
+    }
+
+    /* Contenedor principal */
+    .card-container {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+      pointer-events: none;
+    }
+
+    /* Corazones con caritas */
+    .cute-hearts {
+      display: flex;
+      justify-content: center;
+    }
+
+    .cute-heart {
+      width: 250px;
+      height: 250px;
+      position: relative;
+      animation: bounceHeart 2s infinite ease-in-out;
+      @media (width < 768px) {
+        width: 200px;
+        height: 200px;
+        
+      }
+    }
+
+    .cute-heart:nth-child(2) {
+      animation-delay: 0.3s;
+      transform: scale(0.85);
+    }
+
+    .cute-heart img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
+      opacity: 0;
+    }
+
+    @keyframes bounceHeart {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-15px) scale(1.05);
+      }
+    }
+
+    /* Texto principal */
+    .title-container {
+      text-align: center;
+    }
+    .title-container img {
+        width: 25rem;
+        opacity: 0;
+        @media (width < 768px) {
+            width: 20rem;
+        }
+    }
+
+
+    /* Oso con corazón */
+    .bear-container {
+      width: 280px;
+      height: 280px;
+      position: relative;
+      margin-top: 10px;
+      animation: pulseBear 3s infinite ease-in-out;
+    }
+
+    .bear-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.4));
+      opacity: 0;
+    }
+
+    @keyframes pulseBear {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.03);
+      }
+    }
+
+    /* Brillo alrededor del oso */
+    .bear-container::before {
+      content: '';
+      position: absolute;
+      inset: -30px;
+      background: radial-gradient(circle, rgba(255, 182, 193, 0.3) 0%, transparent 70%);
+      animation: glowPulse 2.5s infinite ease-in-out;
+      z-index: -1;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% {
+        transform: scale(0.9);
+        opacity: 0.5;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+      }
+    }
+
+    /* Corazones decorativos adicionales */
+    .decor-hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .decor-heart {
+      position: absolute;
+      animation: floatDecor 4s infinite ease-in-out;
+    }
+
+    .decor-heart img {
+      width: 100%;
+      height: 100%;
+    }
+
+    @keyframes floatDecor {
+      0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+      }
+      50% {
+        transform: translateY(-10px) rotate(5deg);
+      }
+    }
+
+    /* Explosión de corazones al hacer clic */
+    .burst-heart {
+      position: fixed;
+      pointer-events: none;
+      z-index: 100;
+      animation: burstAnimation 1.2s ease-out forwards;
+    }
+
+    @keyframes burstAnimation {
+      0% {
+        transform: translate(-50%, -50%) scale(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(var(--tx), var(--ty)) scale(1.2) rotate(var(--rot));
+        opacity: 0;
+      }
+    }
+
+    /* Corazones que caen continuamente */
+    .falling-hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .falling-heart {
+      position: absolute;
+      top: -50px;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(calc(100vh + 50px)) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .bear-container {
+        width: 220px;
+        height: 220px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-pattern"></div>
+  <div class="mini-hearts-bg" id="miniHeartsBg"></div>
+  <div class="falling-hearts" id="fallingHearts"></div>
+
+  <div class="card-container" id="cardContainer">
+    <!-- Corazones con caritas -->
+    <div class="cute-hearts">
+      <div class="cute-heart">
+        <img src="./img/corazones.png" alt="corazones" class="img-corazones">       
+      </div>
+    </div>
+
+    <!-- Texto principal -->
+    <div class="title-container">
+      <img src="./img/texto.png" alt="texto" class="img-texto">
+    </div>
+
+    <!-- Oso abrazando un corazón -->
+    <div class="bear-container">
+      <img src="./img/oso.png" alt="" class="img-oso">
+    </div>
+
+    <!-- Corazones decorativos -->
+    <div class="decor-hearts" id="decorHearts"></div>
+  </div>
+
+  <script>
+    // Configuración
+    const CONFIG = {
+      burstCount: 16,
+      fallingInterval: 400,
+      miniHeartCount: 20
+    };
+
+    const heartColors = ['#ff6b9d', '#ffb3c6', '#ff4d6d', '#e75480', '#ffe5ec', '#ff8fab'];
+
+    // Crear SVG de corazón simple
+    function createSimpleHeartSVG(size, color) {
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('width', size);
+      svg.setAttribute('height', size);
+      svg.setAttribute('viewBox', '0 0 24 24');
+      svg.setAttribute('fill', color);
+      
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', 'M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z');
+      
+      svg.appendChild(path);
+      return svg;
+    }
+
+    // Crear corazones mini de fondo
+    function createMiniHeartsBg() {
+      const container = document.getElementById('miniHeartsBg');
+      if (!container) return;
+
+      for (let i = 0; i < CONFIG.miniHeartCount; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'mini-heart';
+        
+        const size = 10 + Math.random() * 15;
+        const color = heartColors[Math.floor(Math.random() * heartColors.length)];
+        
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.top = Math.random() * 100 + '%';
+        heart.style.animationDelay = Math.random() * 4 + 's';
+        heart.style.animationDuration = (10 + Math.random() * 8) + 's';
+        
+        heart.appendChild(createSimpleHeartSVG(size, color));
+        container.appendChild(heart);
+      }
+    }
+
+    // Crear corazones que caen
+    function startFallingHearts() {
+      const container = document.getElementById('fallingHearts');
+      if (!container) return;
+
+      setInterval(() => {
+        const heart = document.createElement('div');
+        heart.className = 'falling-heart';
+        
+        const size = 15 + Math.random() * 20;
+        const color = heartColors[Math.floor(Math.random() * heartColors.length)];
+        const startX = Math.random() * window.innerWidth;
+        const duration = 5 + Math.random() * 5;
+        
+        heart.style.left = startX + 'px';
+        heart.style.animationDuration = duration + 's';
+        
+        heart.appendChild(createSimpleHeartSVG(size, color));
+        container.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, duration * 1000);
+      }, CONFIG.fallingInterval);
+    }
+
+    // Crear corazones decorativos
+    function createDecorHearts() {
+      const container = document.getElementById('decorHearts');
+      if (!container) return;
+
+      const positions = [
+        { top: '5%', left: '5%', size: 25 },
+        { top: '10%', right: '8%', size: 20 },
+        { bottom: '15%', left: '8%', size: 22 },
+        { bottom: '20%', right: '5%', size: 18 },
+        { top: '40%', left: '2%', size: 15 },
+        { top: '50%', right: '3%', size: 17 }
+      ];
+
+      positions.forEach((pos, index) => {
+        const heart = document.createElement('div');
+        heart.className = 'decor-heart';
+        heart.style.position = 'absolute';
+        if (pos.top) heart.style.top = pos.top;
+        if (pos.bottom) heart.style.bottom = pos.bottom;
+        if (pos.left) heart.style.left = pos.left;
+        if (pos.right) heart.style.right = pos.right;
+        heart.style.animationDelay = (index * 0.5) + 's';
+
+        const color = heartColors[index % heartColors.length];
+        heart.appendChild(createSimpleHeartSVG(pos.size, color));
+        container.appendChild(heart);
+      });
+    }
+
+    // Explosión de corazones al hacer clic
+    function burstHearts(x, y) {
+      for (let i = 0; i < CONFIG.burstCount; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'burst-heart';
+
+        const size = 25 + Math.random() * 25;
+        const color = heartColors[Math.floor(Math.random() * heartColors.length)];
+        const angle = (i / CONFIG.burstCount) * Math.PI * 2;
+        const distance = 100 + Math.random() * 150;
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance - 80;
+        const rot = (Math.random() - 0.5) * 720;
+
+        heart.style.left = x + 'px';
+        heart.style.top = y + 'px';
+        heart.style.setProperty('--tx', tx + 'px');
+        heart.style.setProperty('--ty', ty + 'px');
+        heart.style.setProperty('--rot', rot + 'deg');
+
+        heart.appendChild(createSimpleHeartSVG(size, color));
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 1200);
+      }
+    }
+
+    // Animaciones GSAP para imágenes
+    function initImageAnimations() {
+      // Animación para corazones - entrada desde arriba con bounce
+      gsap.fromTo('.img-corazones', 
+        {
+          opacity: 0,
+          y: -100,
+          scale: 0.5,
+          rotation: -15
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          rotation: 0,
+          duration: 2.0,
+          ease: 'back.out(1.7)',
+          delay: 0.3
+        }
+      );
+
+      // Animación para texto - entrada desde abajo con fade
+      gsap.fromTo('.img-texto',
+        {
+          opacity: 0,
+          y: 80,
+          scale: 0.8
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 2.2,
+          ease: 'power3.out',
+          delay: 0.8
+        }
+      );
+
+      // Animación para oso - entrada desde la izquierda con rotación y bounce
+      gsap.fromTo('.img-oso',
+        {
+          opacity: 0,
+          x: -150,
+          scale: 0.6,
+          rotation: -20
+        },
+        {
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          rotation: 0,
+          duration: 2.4,
+          ease: 'elastic.out(1, 0.5)',
+          delay: 1.3
+        }
+      );
+    }
+
+    // Inicialización
+    document.addEventListener('DOMContentLoaded', () => {
+      createMiniHeartsBg();
+      createDecorHearts();
+      startFallingHearts();
+      initImageAnimations();
+
+      // Click en cualquier parte de la página
+      document.body.addEventListener('click', (e) => {
+        burstHearts(e.clientX, e.clientY);
+      });
+    });
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+document.addEventListener('keydown', function (event) {
+  if (
+    event.key === 'F12' ||
+    (event.ctrlKey && event.shiftKey && event.key === 'I') ||
+    (event.ctrlKey && event.shiftKey && event.key === 'J') ||
+    (event.ctrlKey && event.key === 'U')
+  ) {
+    event.preventDefault();
+  }
+});
+  </script>
+</body>
+</html>
