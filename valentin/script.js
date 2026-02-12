@@ -110,3 +110,11 @@ function continuousHeartAnimation() {
     });
   });
 }
+
+const audioAmor = document.getElementById('audioAmor');
+
+document.addEventListener('click', () => {
+  if (audioAmor.paused) {
+    audioAmor.play();
+  } 
+});
