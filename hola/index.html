@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ff4b6e">
+    <title>Hola 💕</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+        html {
+            /* para movil  */
+            overflow: hidden;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at top left, #F7C7D1, #FFEEF6);
+            font-family: "Poppins", sans-serif;
+
+            overflow: hidden;
+            /* para movil  */
+            position: relative
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* BOTÓN */
+        .btn-love {
+            position: absolute;
+            background: url('./boton.png') no-repeat center center;
+            background-size: contain;
+            color: white;
+            font-size: 1.5rem;
+            padding: 0;
+            border: none;
+            border-radius: 0;
+            cursor: pointer;
+            box-shadow: none;
+            transition: all 0.4s ease;
+            animation: pulse 1.5s infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            opacity: 1;
+            z-index: 2;
+            width: 300px;
+            height: 300px;
+            background-color: transparent;
+        }
+
+        .btn-love:hover {
+            transform: scale(1.1);
+            box-shadow: none;
+        }
+
+        .heart {
+            font-size: 1rem;
+            animation: heartbeat 1.3s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.2);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+
+            75% {
+                transform: scale(1.2);
+            }
+        }
+
+        /* VIDEO */
+        .video-container {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s ease;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        video {
+            width: 90%;
+            max-width: 600px;
+            border-radius: 20px;
+            z-index: 5;
+        }
+
+        .show-video {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 3;
+        }
+
+        .hide-button {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        /* ❤️ CORAZONCITOS FLOTANDO ❤️ */
+        .floating-heart {
+            position: absolute;
+            bottom: 0;
+            font-size: 1.5rem;
+            color: #ff4b6e;
+            opacity: 0.8;
+            animation: floatUp 4s linear forwards;
+            pointer-events: none;
+            z-index: 6;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-120vh) scale(1.6);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Botón principal -->
+        <button class="btn-love" id="loveBtn">
+        </button>
+
+        <!-- Contenedor del video -->
+        <div class="video-container" id="videoContainer">
+            <video id="video" src="./video.mp4" loop></video>
+        </div>
+
+        <!-- Audio que se reproduce al hacer clic -->
+        <audio id="music" src="./audio.mp3" loop></audio>
+    </div>
+
+    <script>
+        const btn = document.getElementById('loveBtn');
+        const videoContainer = document.getElementById('videoContainer');
+        const video = document.getElementById('video');
+        const music = document.getElementById('music');
+
+        // 💞 Mostrar video al hacer clic
+        btn.addEventListener('click', () => {
+            btn.classList.add('hide-button');
+
+            setTimeout(() => {
+                btn.style.display = 'none';
+                videoContainer.classList.add('show-video');
+                video.play();
+                music.play();
+
+                // Activar corazones flotando
+                setInterval(createHeart, 500);
+            }, 600);
+        });
+
+        // 💕 Crear corazones flotando
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.textContent = '💝';
+
+            // Posición horizontal aleatoria
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+            heart.style.animationDuration = 3 + Math.random() * 2 + 's';
+
+            // Los corazones aparecen encima del video
+            videoContainer.appendChild(heart);
+
+            // Eliminar después de la animación
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+    </script>
+</body>
+
+</html>
