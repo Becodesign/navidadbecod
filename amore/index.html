@@ -265,6 +265,8 @@
   </style>
 </head>
 <body>
+  <audio id="audioAmor" src="../audio/audio_4.mp3"></audio>
+
   <div class="bg-pattern"></div>
   <div class="mini-hearts-bg" id="miniHeartsBg"></div>
   <div class="falling-hearts" id="fallingHearts"></div>
@@ -504,6 +506,14 @@ document.addEventListener('keydown', function (event) {
   ) {
     event.preventDefault();
   }
+});
+
+const audioAmor = document.getElementById('audioAmor');
+
+document.addEventListener('click', () => {
+  if (audioAmor.paused) {
+    audioAmor.play();
+  } 
 });
   </script>
 </body>

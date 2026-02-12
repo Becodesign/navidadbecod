@@ -121,3 +121,12 @@ document.addEventListener('keydown', function (event) {
 	event.preventDefault();
   }
 });
+
+const audioAmor = document.getElementById('audioAmor');
+
+bubbleButton.addEventListener('click', () => {
+  if (audioAmor.paused) {
+    audioAmor.play();
+  } 
+});
+
