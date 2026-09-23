@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Primavera 🌸</title>
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            position: relative;
+            cursor: crosshair;
+            background:
+                radial-gradient(circle at 20% 15%, rgba(255, 255, 255, .45), transparent 25%),
+                radial-gradient(circle at 85% 80%, rgba(255, 210, 235, .42), transparent 28%),
+                linear-gradient(135deg, #f9fff0 0%, #eaf9df 45%, #dff4ea 100%);
+            font-family: Arial, sans-serif;
+        }
+
+        /* Fondo de partículas */
+        #bgCanvas {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* =========================================================
+   TÍTULO PRINCIPAL
+   ========================================================= */
+
+        .hero {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .title {
+            position: relative;
+            text-align: center;
+            padding: 30px 25px 45px;
+            width: min(96vw, 1450px);
+            animation: titleFloat 5s ease-in-out infinite;
+        }
+
+        /* "Hola" */
+        .hola {
+            position: relative;
+            display: block;
+            width: max-content;
+            max-width: 100%;
+            margin: 0 auto -8px;
+            font-family: "Pacifico", cursive;
+            font-size: clamp(65px, 11vw, 175px);
+            line-height: .85;
+            color: #f06c7e;
+            letter-spacing: -5px;
+
+            -webkit-text-stroke: 2px rgba(255, 255, 255, .45);
+            text-shadow:
+                0 5px 0 rgba(198, 65, 88, .12),
+                0 10px 20px rgba(70, 50, 50, .14);
+
+            animation:
+                holaEntrada 1.3s cubic-bezier(.2, 1.4, .3, 1) both,
+                holaFlota 4s ease-in-out 1.3s infinite;
+        }
+
+        /* "PRIMAVERA" */
+        .primavera {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: clamp(0px, .2vw, 5px);
+            margin-top: 10px;
+            white-space: nowrap;
+            font-family: "Anton", Impact, sans-serif;
+            font-size: clamp(62px, 11.7vw, 205px);
+            line-height: .82;
+            letter-spacing: -.025em;
+            color: #b7dc42;
+
+            filter:
+                drop-shadow(0 8px 0 rgba(99, 127, 27, .08)) drop-shadow(0 14px 22px rgba(52, 72, 30, .13));
+        }
+
+        /* Cada letra se mueve ligeramente para parecer dibujada a mano */
+        .letra {
+            display: inline-block;
+            position: relative;
+            transform-origin: 50% 75%;
+            animation: letterFloat 4s ease-in-out infinite;
+            text-shadow:
+                2px 3px 0 rgba(121, 151, 37, .16),
+                -1px -1px 0 rgba(255, 255, 255, .18);
+        }
+
+        .letra:nth-child(1) {
+            transform: rotate(-9deg) translateY(9px);
+            animation-delay: .05s
+        }
+
+        .letra:nth-child(2) {
+            transform: rotate(-2deg) translateY(-3px);
+            animation-delay: .18s
+        }
+
+        .letra:nth-child(3) {
+            transform: rotate(7deg) translateY(12px);
+            animation-delay: .31s
+        }
+
+        .letra:nth-child(4) {
+            transform: rotate(-5deg) translateY(-2px);
+            animation-delay: .44s
+        }
+
+        .letra:nth-child(5) {
+            transform: rotate(6deg) translateY(9px);
+            animation-delay: .57s
+        }
+
+        .letra:nth-child(6) {
+            transform: rotate(-4deg) translateY(-5px);
+            animation-delay: .70s
+        }
+
+        .letra:nth-child(7) {
+            transform: rotate(8deg) translateY(7px);
+            animation-delay: .83s
+        }
+
+        .letra:nth-child(8) {
+            transform: rotate(-6deg) translateY(-1px);
+            animation-delay: .96s
+        }
+
+        .letra:nth-child(9) {
+            transform: rotate(4deg) translateY(10px);
+            animation-delay: 1.09s
+        }
+
+        .sub {
+            margin-top: 28px;
+            font-size: clamp(11px, 1.3vw, 18px);
+            letter-spacing: clamp(3px, .8vw, 9px);
+            color: #6e9563;
+            font-weight: 600;
+            opacity: .82;
+            animation: subEntrada 1.5s .7s both;
+        }
+
+        /* Flor decorativa */
+        .flower-deco {
+            position: absolute;
+            font-size: clamp(28px, 4vw, 60px);
+            filter: drop-shadow(0 5px 5px rgba(0, 0, 0, .12));
+            animation: decoFloat 3s ease-in-out infinite;
+        }
+
+        .flower-deco.one {
+            left: 7%;
+            top: 15%;
+            transform: rotate(-15deg);
+        }
+
+        .flower-deco.two {
+            right: 7%;
+            bottom: 13%;
+            animation-delay: 1s;
+        }
+
+        .flower-deco.three {
+            right: 10%;
+            top: 16%;
+            font-size: clamp(20px, 3vw, 45px);
+            animation-delay: 1.7s;
+        }
+
+        /* Flores creadas al hacer clic */
+        .flower {
+            position: absolute;
+            pointer-events: none;
+            z-index: 20;
+            transform: translate(-50%, -50%) scale(0);
+            animation: bloom .75s cubic-bezier(.17, .89, .32, 1.35) forwards;
+            filter: drop-shadow(0 9px 12px rgba(0, 0, 0, .13));
+        }
+
+        .flower.fade {
+            animation: flowerOut 2.2s ease-in forwards;
+        }
+
+        .spark {
+            position: absolute;
+            pointer-events: none;
+            z-index: 30;
+            font-size: 18px;
+            animation: sparkOut .9s ease-out forwards;
+        }
+
+        /* Animaciones */
+        @keyframes titleFloat {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-7px)
+            }
+        }
+
+        @keyframes holaEntrada {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(.75) rotate(-8deg)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotate(0)
+            }
+        }
+
+        @keyframes holaFlota {
+
+            0%,
+            100% {
+                transform: rotate(0) translateY(0)
+            }
+
+            50% {
+                transform: rotate(-1deg) translateY(-4px)
+            }
+        }
+
+        @keyframes letterFloat {
+
+            0%,
+            100% {
+                margin-top: 0
+            }
+
+            50% {
+                margin-top: -5px
+            }
+        }
+
+        @keyframes subEntrada {
+            from {
+                opacity: 0;
+                transform: translateY(12px)
+            }
+
+            to {
+                opacity: .82;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes decoFloat {
+
+            0%,
+            100% {
+                translate: 0 0;
+                rotate: 0deg
+            }
+
+            50% {
+                translate: 0 -12px;
+                rotate: 7deg
+            }
+        }
+
+        @keyframes bloom {
+            0% {
+                transform: translate(-50%, -50%) scale(0) rotate(-30deg);
+                opacity: 0
+            }
+
+            65% {
+                transform: translate(-50%, -50%) scale(1.15) rotate(8deg);
+                opacity: 1
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1) rotate(0);
+                opacity: 1
+            }
+        }
+
+        @keyframes flowerOut {
+            to {
+                transform: translate(-50%, -75%) scale(.65) rotate(25deg);
+                opacity: 0
+            }
+        }
+
+        @keyframes sparkOut {
+            0% {
+                transform: translate(0, 0) scale(.4);
+                opacity: 1
+            }
+
+            100% {
+                transform: translate(var(--dx), var(--dy)) scale(1.4);
+                opacity: 0
+            }
+        }
+
+        /* En pantallas pequeñas */
+        @media(max-width:650px) {
+            .title {
+                padding: 20px 5px 35px
+            }
+
+            .hola {
+                font-size: 20vw
+            }
+
+            .primavera {
+                font-size: 15.2vw
+            }
+
+            .sub {
+                margin-top: 20px
+            }
+
+            .flower-deco.one {
+                left: 3%;
+                top: 8%
+            }
+
+            .flower-deco.two {
+                right: 3%;
+                bottom: 8%
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="bgCanvas"></canvas>
+
+    <div class="hero">
+        <div class="title">
+
+            <div class="flower-deco one">🌼</div>
+            <div class="flower-deco two">🌸</div>
+            <div class="flower-deco three">🌿</div>
+
+            <div class="hola">Hola</div>
+
+            <div class="primavera" aria-label="Primavera">
+                <span class="letra">P</span>
+                <span class="letra">R</span>
+                <span class="letra">I</span>
+                <span class="letra">M</span>
+                <span class="letra">A</span>
+                <span class="letra">V</span>
+                <span class="letra">E</span>
+                <span class="letra">R</span>
+                <span class="letra">A</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* =========================================================
+           FONDO DE PARTÍCULAS
+           ========================================================= */
+
+        const canvas = document.getElementById("bgCanvas");
+        const ctx = canvas.getContext("2d");
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = innerWidth * devicePixelRatio;
+            canvas.height = innerHeight * devicePixelRatio;
+            canvas.style.width = innerWidth + "px";
+            canvas.style.height = innerHeight + "px";
+            ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+        }
+        resizeCanvas();
+        addEventListener("resize", resizeCanvas);
+
+        class Particle {
+            constructor() {
+                this.reset(true);
+            }
+
+            reset(initial = false) {
+                this.x = Math.random() * innerWidth;
+                this.y = initial ? Math.random() * innerHeight : innerHeight + 20;
+                this.r = Math.random() * 3 + 1;
+                this.speed = Math.random() * .45 + .15;
+                this.swing = Math.random() * Math.PI * 2;
+                this.opacity = Math.random() * .35 + .1;
+                this.color = [
+                    "#f49ab0",
+                    "#c5df65",
+                    "#ffd166",
+                    "#8ed8bd",
+                    "#b8a0e8"
+                ][Math.floor(Math.random() * 5)];
+            }
+
+            update() {
+                this.y -= this.speed;
+                this.swing += .008;
+                this.x += Math.sin(this.swing) * .25;
+
+                if (this.y < -20) this.reset();
+            }
+
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.opacity;
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        for (let i = 0; i < 55; i++)particles.push(new Particle());
+
+        function animate() {
+            ctx.clearRect(0, 0, innerWidth, innerHeight);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+
+        /* =========================================================
+           FLORES DIFERENTES AL HACER CLIC
+           ========================================================= */
+
+        let flowerID = 0;
+
+        const palettes = [
+            ["#ff5f7e", "#ff9eb3", "#d92e59"],
+            ["#f7c948", "#ffe69a", "#e59b00"],
+            ["#c77dff", "#e0aaff", "#7b2cbf"],
+            ["#ff70a6", "#ffb3d0", "#d63384"],
+            ["#4cc9f0", "#90e0ef", "#0077b6"],
+            ["#72d572", "#b7ef8a", "#3a9d46"],
+            ["#ff8c42", "#ffc078", "#e85d04"],
+            ["#ef476f", "#ff8fab", "#b5174b"]
+        ];
+
+        function random(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        function createFlower(x, y) {
+
+            flowerID++;
+
+            const flower = document.createElement("div");
+            flower.className = "flower";
+
+            const size = random(90, 155);
+            const petals = [5, 6, 7, 8, 9][Math.floor(Math.random() * 5)];
+            const palette = palettes[Math.floor(Math.random() * palettes.length)];
+
+            flower.style.left = x + "px";
+            flower.style.top = y + "px";
+            flower.style.width = size + "px";
+            flower.style.height = size + "px";
+
+            const svgNS = "http://www.w3.org/2000/svg";
+            const svg = document.createElementNS(svgNS, "svg");
+
+            svg.setAttribute("width", size);
+            svg.setAttribute("height", size);
+            svg.setAttribute("viewBox", "0 0 200 200");
+
+            const defs = document.createElementNS(svgNS, "defs");
+
+            const gradient = document.createElementNS(svgNS, "radialGradient");
+            const gradientID = "g" + flowerID;
+
+            gradient.id = gradientID;
+            gradient.setAttribute("cx", "35%");
+            gradient.setAttribute("cy", "25%");
+            gradient.setAttribute("r", "80%");
+
+            const stops = [
+                ["0%", palette[1]],
+                ["58%", palette[0]],
+                ["100%", palette[2]]
+            ];
+
+            stops.forEach(([offset, color]) => {
+                const stop = document.createElementNS(svgNS, "stop");
+                stop.setAttribute("offset", offset);
+                stop.setAttribute("stop-color", color);
+                gradient.appendChild(stop);
+            });
+
+            defs.appendChild(gradient);
+            svg.appendChild(defs);
+
+            /* pétalos */
+            for (let i = 0; i < petals; i++) {
+
+                const g = document.createElementNS(svgNS, "g");
+                const angle = (360 / petals) * i;
+
+                g.setAttribute(
+                    "transform",
+                    `rotate(${angle} 100 100)`
+                );
+
+                const path = document.createElementNS(svgNS, "path");
+
+                path.setAttribute(
+                    "d",
+                    "M100 105 C72 82 73 43 100 18 C127 43 128 82 100 105Z"
+                );
+
+                path.setAttribute("fill", `url(#${gradientID})`);
+                path.setAttribute("stroke", "rgba(255,255,255,.65)");
+                path.setAttribute("stroke-width", "1.5");
+
+                g.appendChild(path);
+                svg.appendChild(g);
+            }
+
+            /* centro */
+            const center = document.createElementNS(svgNS, "circle");
+            center.setAttribute("cx", "100");
+            center.setAttribute("cy", "100");
+            center.setAttribute("r", "20");
+            center.setAttribute("fill", "#ffbd32");
+            center.setAttribute("stroke", "#d98b00");
+            center.setAttribute("stroke-width", "2");
+            svg.appendChild(center);
+
+            /* semillas */
+            for (let i = 0; i < 12; i++) {
+                const a = (Math.PI * 2 / 12) * i;
+                const seed = document.createElementNS(svgNS, "circle");
+                seed.setAttribute("cx", 100 + Math.cos(a) * 11);
+                seed.setAttribute("cy", 100 + Math.sin(a) * 11);
+                seed.setAttribute("r", "2.2");
+                seed.setAttribute("fill", "#71430b");
+                svg.appendChild(seed);
+            }
+
+            flower.appendChild(svg);
+            document.body.appendChild(flower);
+
+            createSparkles(x, y);
+
+            /* desaparece después de un tiempo */
+            setTimeout(() => {
+                flower.classList.add("fade");
+                setTimeout(() => flower.remove(), 2200);
+            }, 7000);
+        }
+
+
+        /* =========================================================
+           DESTELLOS
+           ========================================================= */
+
+        function createSparkles(x, y) {
+
+            const symbols = ["✦", "✧", "✿", "❀", "✨"];
+
+            for (let i = 0; i < 9; i++) {
+
+                const spark = document.createElement("div");
+                spark.className = "spark";
+
+                spark.textContent =
+                    symbols[Math.floor(Math.random() * symbols.length)];
+
+                spark.style.left = x + "px";
+                spark.style.top = y + "px";
+
+                spark.style.color = [
+                    "#ff6b8a",
+                    "#ffbf3f",
+                    "#9c6cff",
+                    "#54b8ff",
+                    "#64c77b"
+                ][Math.floor(Math.random() * 5)];
+
+                spark.style.setProperty(
+                    "--dx",
+                    random(-80, 80) + "px"
+                );
+
+                spark.style.setProperty(
+                    "--dy",
+                    random(-80, 20) + "px"
+                );
+
+                spark.style.animationDelay = random(0, .15) + "s";
+
+                document.body.appendChild(spark);
+
+                setTimeout(() => spark.remove(), 1100);
+            }
+        }
+
+
+        /* =========================================================
+           CLICK
+           ========================================================= */
+
+        document.addEventListener("click", e => {
+            createFlower(e.clientX, e.clientY);
+        });
+
+
+        /* =========================================================
+           TOQUE EN CELULAR
+           ========================================================= */
+
+        document.addEventListener("touchstart", e => {
+            const touch = e.touches[0];
+            if (touch) {
+                createFlower(touch.clientX, touch.clientY);
+            }
+        }, { passive: true });
+    </script>
+
+</body>
+
+</html>
