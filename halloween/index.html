@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071c15">
+  <title>Invitación Noche de Halloween</title>
+  <link rel="preload" href="assets/SomethingStrange.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="poster" aria-label="Publicidad de Noche de Halloween">
+    <div class="backdrop" aria-hidden="true"></div>
+    <div class="embers" aria-hidden="true"></div>
+
+    <button class="music-toggle" id="musicToggle" type="button" aria-label="Reproducir música" aria-pressed="false">
+      <svg class="music-icon music-icon-play" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M11 7.5v17l14-8.5-14-8.5Z" />
+      </svg>
+      <svg class="music-icon music-icon-stop" viewBox="0 0 32 32" aria-hidden="true">
+        <rect x="9" y="9" width="14" height="14" rx="2" />
+      </svg>
+      <span class="music-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+    </button>
+
+    <header class="top">
+      <div class="brand">
+        <img class="logo" src="images/logo.png" alt="Logo de Raven Club & Bar">
+      </div>
+      <div class="date">
+        <strong class="date-number">31</strong>
+        <span class="month">OCTUBRE</span>
+        <span class="weekday">SÁBADO</span>
+        <b class="time">10:00</b>
+      </div>
+    </header>
+
+    <section class="headline" aria-label="Noche de Halloween">
+      <p class="eyebrow">TE INVITAMOS A UNA</p>
+      <h1><span class="halloween">NOCHE DE</span><span class="night" aria-label="HALLOWEEN">HALLOWEEN</span></h1>
+    </section>
+
+    <div class="side-copy side-left">MÚSICA<br>PERSONAS<br>ATMÓSFERA</div>
+    <div class="side-copy side-right">UNA NOCHE<br>QUE NO<br>OLVIDARÁS</div>
+
+    <div class="guest">
+      <span>CALLE 13 NIEBLA ETERNA N° 666</span>
+      <strong>LA CASA DEL TERROR </strong>
+    </div>
+
+    <section class="perks">
+      <div>COCTELES<br>TODA LA NOCHE</div>
+      <div>ZONA DE<br>DISFRACES</div>
+      <div>BAILE<br>HASTA EL AMANECER</div>
+    </section>
+
+    <a class="cta" href="https://wa.me/1234567890" id="reserveButton" target="_blank" rel="noopener noreferrer">
+      <span>RESERVA TU MESA</span><b aria-hidden="true">→</b>
+    </a>
+    <p class="microcopy" id="reservas">Aforo limitado · Vive una noche inolvidable</p>
+  </main>
+
+  <audio id="backgroundMusic" src="assets/musica.mp3" loop preload="none"></audio>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
