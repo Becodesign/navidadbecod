@@ -130,7 +130,20 @@ body {
   background: linear-gradient(145deg, #173b25ee, #030907f2 72%);
   box-shadow: 0 0 10px #c9ff6280, inset 0 0 12px #c9ff6230, 0 3px 12px #000b;
   cursor: pointer;
-  transition: transform .2s ease, box-shadow .2s ease, color .2s ease;
+  animation: music-toggle-entry .75s cubic-bezier(.2, .8, .25, 1.2) .25s backwards;
+  transition: transform .2s ease, box-shadow .2s ease, color .2s ease, border-color .2s ease;
+}
+
+@keyframes music-toggle-entry {
+  from {
+    opacity: 0;
+    transform: translate(-28px, -24px) rotate(-100deg) scale(.3);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .music-toggle:hover,
@@ -153,36 +166,53 @@ body {
 }
 
 .music-icon {
+  position: absolute;
   width: 62%;
   fill: currentColor;
   filter: drop-shadow(0 0 5px currentColor);
+  transition: opacity .2s ease, transform .2s ease;
 }
 
-.music-icon-stop,
-.music-bars {
-  display: none;
+.music-icon-play {
+  opacity: 1;
+  transform: scale(1) rotate(0);
+}
+
+.music-icon-stop {
+  opacity: 0;
+  transform: scale(.45) rotate(-90deg);
 }
 
 .music-toggle[aria-pressed="true"] .music-icon-play {
-  display: none;
+  opacity: 0;
+  transform: scale(.45) rotate(90deg);
 }
 
-.music-toggle[aria-pressed="true"] .music-icon-stop,
-.music-toggle[aria-pressed="true"] .music-bars {
-  display: block;
+.music-toggle[aria-pressed="true"] .music-icon-stop {
+  opacity: 1;
+  transform: scale(1) rotate(0);
 }
 
 .music-bars {
   position: absolute;
   right: -3px;
   bottom: -2px;
-  display: none;
+  visibility: hidden;
   height: 13px;
   padding: 2px 3px;
   border: 1px solid #ffcf79;
   border-radius: 5px;
   background: #102216;
   font-size: 0;
+  opacity: 0;
+  transform: scale(.7);
+  transition: opacity .2s ease, transform .2s ease, visibility .2s;
+}
+
+.music-toggle[aria-pressed="true"] .music-bars {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
 }
 
 .music-bars i {

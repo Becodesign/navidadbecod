@@ -3,6 +3,25 @@
   const laugh = new Audio("assets/risa.mp3");
   const music = document.querySelector("#backgroundMusic");
   const musicToggle = document.querySelector("#musicToggle");
+  const waitForImage = (src) => new Promise((resolve) => {
+    const image = new Image();
+    image.onload = () => {
+      if (typeof image.decode !== "function") {
+        resolve();
+        return;
+      }
+
+      image.decode().then(resolve).catch((error) => {
+        console.error(`No se pudo decodificar ${src}:`, error);
+        resolve();
+      });
+    };
+    image.onerror = (error) => {
+      console.error(`No se pudo cargar ${src}:`, error);
+      resolve();
+    };
+    image.src = src;
+  });
 
   musicToggle.addEventListener("click", async () => {
     if (music.paused) {
@@ -47,31 +66,33 @@
   });
   halloween.replaceChildren(...letters);
 
-  const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
-  intro
-    .from(".brand", { y: -80, rotate: -18, scale: .55, opacity: 0, duration: .9, ease: "back.out(1.8)" })
-    .from(".date-number", { y: -120, rotate: -180, scale: .3, opacity: 0, duration: 1.1, ease: "bounce.out" }, "-=.55")
-    .from([".month", ".weekday", ".time"], { y: -24, opacity: 0, stagger: .09, duration: .45 }, "-=.7")
-    .from(".eyebrow", { y: -20, opacity: 0, letterSpacing: ".8em", duration: .55 }, "-=.35")
-    .from(".halloween", { y: 70, rotateX: -70, scale: .7, opacity: 0, duration: .75, ease: "back.out(1.5)" }, "-=.25")
-    .fromTo(letters,
-      { y: -180, rotate: (index) => index % 2 ? 28 : -28, scale: .55, opacity: 0 },
-      { y: 0, rotate: 0, scale: 1, opacity: 1, duration: 1.15, stagger: { each: .075 }, ease: "bounce.out" },
-      "-=.15"
-    )
-    .from(".side-copy", {
-      x: (index, element) => element.classList.contains("side-left") ? -70 : 70,
-      rotate: (index, element) => element.classList.contains("side-left") ? -8 : 8,
-      opacity: 0,
-      duration: .6,
-      stagger: .12,
-      ease: "back.out(1.6)"
-    }, "-=.55")
-    .from(".guest", { scale: 1.8, opacity: 0, duration: 1.1, ease: "power3.out" }, "-=.2")
-    .call(() => gsap.to(".guest", { y: -8, duration: 1.6, yoyo: true, repeat: -1, ease: "sine.inOut" }))
-    .from(".perks div", { y: 35, rotateY: 55, opacity: 0, duration: .55, stagger: .12, ease: "back.out(1.7)" }, "-=.35")
-    .from(".cta", { y: 90, rotate: 12, scale: .9, opacity: 0, duration: .8, ease: "elastic.out(1, .55)" }, "-=.15")
-    .from(".microcopy", { y: 15, opacity: 0, duration: .45 }, "-=.35");
+  Promise.all([waitForImage("images/fondo.webp"), waitForImage("images/fondoluz.webp")]).then(() => {
+    const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
+    intro
+      .from(".brand", { y: -80, rotate: -18, scale: .55, opacity: 0, duration: .9, ease: "back.out(1.8)" })
+      .from(".date-number", { y: -120, rotate: -180, scale: .3, opacity: 0, duration: 1.1, ease: "bounce.out" }, "-=.55")
+      .from([".month", ".weekday", ".time"], { y: -24, opacity: 0, stagger: .09, duration: .45 }, "-=.7")
+      .from(".eyebrow", { y: -20, opacity: 0, letterSpacing: ".8em", duration: .55 }, "-=.35")
+      .from(".halloween", { y: 70, rotateX: -70, scale: .7, opacity: 0, duration: .75, ease: "back.out(1.5)" }, "-=.25")
+      .fromTo(letters,
+        { y: -180, rotate: (index) => index % 2 ? 28 : -28, scale: .55, opacity: 0 },
+        { y: 0, rotate: 0, scale: 1, opacity: 1, duration: 1.15, stagger: { each: .075 }, ease: "bounce.out" },
+        "-=.15"
+      )
+      .from(".side-copy", {
+        x: (index, element) => element.classList.contains("side-left") ? -70 : 70,
+        rotate: (index, element) => element.classList.contains("side-left") ? -8 : 8,
+        opacity: 0,
+        duration: .6,
+        stagger: .12,
+        ease: "back.out(1.6)"
+      }, "-=.55")
+      .from(".guest", { scale: 1.8, opacity: 0, duration: 1.1, ease: "power3.out" }, "-=.2")
+      .call(() => gsap.to(".guest", { y: -8, duration: 1.6, yoyo: true, repeat: -1, ease: "sine.inOut" }))
+      .from(".perks div", { y: 35, rotateY: 55, opacity: 0, duration: .55, stagger: .12, ease: "back.out(1.7)" }, "-=.35")
+      .from(".cta", { y: 90, rotate: 12, scale: .9, opacity: 0, duration: .8, ease: "elastic.out(1, .55)" }, "-=.15")
+      .from(".microcopy", { y: 15, opacity: 0, duration: .45 }, "-=.35");
+  });
 
   const embers = document.querySelector(".embers");
   const emberCount = 40;
