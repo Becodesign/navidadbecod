@@ -1,4 +1,10 @@
 @font-face {
+  font-family: "Anton";
+  src: url("assets/Anton.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
   font-family: "SomethingStrange";
   src: url("assets/SomethingStrange.ttf") format("truetype");
   font-display: swap;
@@ -20,6 +26,8 @@
 html {
   background: #030907;
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -28,7 +36,7 @@ body {
   min-height: 100svh;
   background: #030907;
   color: var(--cream);
-  font-family: Impact, "Arial Narrow", sans-serif;
+  font-family: "Anton", Impact, "Arial Narrow", sans-serif;
 }
 
 .poster {
@@ -56,14 +64,14 @@ body {
   position: absolute;
   inset: 0;
   z-index: -5;
-  background: url("images/fondo.jpg") center / cover no-repeat;
+  background: url("images/fondo.webp") center / cover no-repeat;
 }
 
 .backdrop::after {
   position: absolute;
   inset: 0;
   content: "";
-  background: url("images/fondoluz.jpg") center / cover no-repeat;
+  background: url("images/fondoluz.webp") center / cover no-repeat;
   animation: backdrop-flicker 8s linear infinite;
 }
 
@@ -328,10 +336,10 @@ h1 {
   top: 72%;
   left: 50%;
   z-index: 5;
-  width: 68%;
+  width: 86%;
   padding: 1.3cqh 2cqw;
   text-align: center;
-  background: url("images/lugar.png") center / 100% 100% no-repeat;
+  background: url("images/lugar.webp") center / 100% 100% no-repeat;
   box-shadow: 0 8px 25px #0008;
   transform: translateX(-50%) rotate(-1deg);
 }
@@ -345,9 +353,11 @@ h1 {
 }
 
 .guest strong {
-  font-size: 7cqw;
-  letter-spacing: .02em;
+  display: block;
+  font-size: 5.5cqw;
+  letter-spacing: 0;
   color: #f8f5e6;
+  white-space: nowrap;
 }
 
 .perks {
@@ -397,7 +407,7 @@ h1 {
   inset: 0;
   z-index: -1;
   content: "";
-  background: url("images/boton.png") center / 100% 100% no-repeat;
+  background: url("images/boton.webp") center / 100% 100% no-repeat;
   filter: drop-shadow(0 0 var(--button-glow, 5px) #c9ff6280);
   transition: filter .2s;
 }
